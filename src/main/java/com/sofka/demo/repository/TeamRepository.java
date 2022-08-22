@@ -1,10 +1,11 @@
 package com.sofka.demo.repository;
 
 import com.sofka.demo.domain.TeamModel;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
 
-import javax.swing.text.html.Option;
 import java.util.Optional;
-
-public interface TeamRepository {
+@Repository
+public interface TeamRepository extends CrudRepository<TeamModel, Long> {
    public Optional<TeamModel> findCyclistByCodeTeam(String codeTeam);
 }
