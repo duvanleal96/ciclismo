@@ -4,7 +4,6 @@ import com.sofka.demo.domain.TeamModel;
 import com.sofka.demo.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
@@ -18,4 +17,14 @@ public class TeamService {
     public TeamModel saveTeam(TeamModel teamModel) {
         return teamRepository.save(teamModel);
     }
+    public boolean deleteTeam(Long id) {
+        try {
+            teamRepository.deleteById(id);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
+    }
+
+
 }

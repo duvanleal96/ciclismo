@@ -14,12 +14,12 @@ public class TeamModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id" )
     private Long id;
-    @Column(name = "name_team" ,length = 20,unique = false,nullable = false)
+    @Column(name = "name_team" ,length = 20,unique = false,nullable = true)
     private String nameTeam;
-    @Column(name = "code_team" ,length = 5,unique = true,nullable = false)
+    @Column(name = "code_team" ,length = 5,unique = true,nullable = true)
     private String codeTeam;
-    @ManyToOne
-    @JoinColumn(name = "country", nullable = false)
+   @ManyToOne(cascade = CascadeType.ALL)
+   @JoinColumn(name = "country", nullable = false)
     private Country country;
 
 }

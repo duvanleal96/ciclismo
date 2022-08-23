@@ -18,9 +18,18 @@ public class TeamController {
     public ArrayList<TeamModel> getTeam(){
         return teamService.getTeams();
     }
-
     @PostMapping("/api/teamNew")
     public TeamModel saveTeam(@Validated @RequestBody TeamModel newTeam){
         return  teamService.saveTeam(newTeam);
+    }
+
+    @DeleteMapping(path = "/api/team/delete/{id}")
+    public String deleteById(@PathVariable("id") Long id) {
+        boolean ok = this.teamService.deleteTeam(id);
+        if (ok) {
+            return "Se eliminó el el equipo con id " + id;
+        } else {
+            return "No pudo eliminar el equipo con id " + id;
+        }
     }
 }

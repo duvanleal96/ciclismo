@@ -22,7 +22,7 @@ public class CyclistController {
 
     @PostMapping("/api/cyclistNew")
     public CyclistModel saveCyclist(@Validated @RequestBody CyclistModel cyclistNew){
-        return  cyclistService.saveCyclist(cyclistNew);
+        return  this.cyclistService.saveCyclist(cyclistNew);
     }
     @DeleteMapping(path = "/api/cyclist/delete/{id}")
     public String deleteById(@PathVariable("id") Long id) {
@@ -30,7 +30,7 @@ public class CyclistController {
         if (ok) {
             return "Se eliminó el el ciclista con id " + id;
         } else {
-            return "No pudo eliminar el ciclista con id" + id;
+            return "No pudo eliminar el ciclista con id " + id;
         }
     }
 }

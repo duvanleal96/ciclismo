@@ -18,4 +18,12 @@ public class CountryService {
     public Country saveCountry(Country country) {
         return countryRepository.save(country);
     }
+    public boolean deleteCountry(Long id) {
+        try {
+            countryRepository.deleteById(id);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
+    }
 }
