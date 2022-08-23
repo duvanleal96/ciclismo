@@ -1,14 +1,17 @@
 package com.sofka.demo.services;
 
 import com.sofka.demo.domain.TeamModel;
+import com.sofka.demo.repository.CyclistRepository;
 import com.sofka.demo.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 @Service
 public class TeamService {
+    CyclistRepository cyclistRepository;
     @Autowired
     TeamRepository teamRepository;
     public ArrayList<TeamModel> getTeams(){
@@ -24,6 +27,12 @@ public class TeamService {
         } catch (Exception err) {
             return false;
         }
+    }
+    public Stream<Long> findCyclistByCodeTeam(String codeTeam){
+         return teamRepository.findCyclistByCodeTeam(codeTeam).stream()
+                    .map(teamModel -> {
+                      return  teamModel.getId();
+                    });
     }
 
 

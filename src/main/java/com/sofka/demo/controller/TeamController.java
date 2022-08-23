@@ -8,10 +8,12 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.stream.Stream;
 
 @CrossOrigin
 @RestController
 public class TeamController {
+
     @Autowired
     TeamService teamService;
     @GetMapping("/api/team")
@@ -31,5 +33,9 @@ public class TeamController {
         } else {
             return "No pudo eliminar el equipo con id " + id;
         }
+    }
+    @GetMapping("/api/team/codeTeam/{codeTeam}")
+    public Stream<Long> getCyclistByCodeTeam(@PathVariable("codeTeam") String codeTeam){
+         return teamService.findCyclistByCodeTeam(codeTeam);
     }
 }
