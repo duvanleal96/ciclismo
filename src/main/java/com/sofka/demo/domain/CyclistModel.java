@@ -19,10 +19,10 @@ public class CyclistModel {
     private String nameCyclist;
     @Column(name = "competitor_number" ,length = 5,unique = true,nullable = false)
     private String competitorNumber;
-   @ManyToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "country", nullable = false)
+   @ManyToOne
+   @JoinColumn(name = "country", nullable = true)
    private Country country;
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "team", nullable = false)
+    @ManyToOne
+    @JoinColumn(name = "team", nullable = true)
     private TeamModel team;
 }

@@ -18,8 +18,8 @@ public class TeamModel {
     private String nameTeam;
     @Column(name = "code_team" ,length = 5,unique = true,nullable = true)
     private String codeTeam;
-   @ManyToOne(cascade = CascadeType.ALL)
-   @JoinColumn(name = "country", nullable = false)
+   @ManyToOne
+   @JoinColumn(name = "country", nullable = true)
     private Country country;
 
 }

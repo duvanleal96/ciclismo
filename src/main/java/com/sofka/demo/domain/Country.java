@@ -1,5 +1,6 @@
 package com.sofka.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -18,5 +19,11 @@ public class Country {
     private Long id;
     @Column(name = "name_country" ,length = 20,unique = false,nullable = false)
      private String nameCountry;
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<CyclistModel> cyclingTeams;
+    @OneToMany(mappedBy = "country", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<TeamModel> cyclists;
 }
 

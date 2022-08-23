@@ -15,8 +15,8 @@ public class CyclistService {
     public ArrayList<CyclistModel> getCyclist(){
         return (ArrayList<CyclistModel>) cyclistRepository.findAll();
     }
-    public CyclistModel saveCyclist(CyclistModel cyclistModel) {
-        return cyclistRepository.save(cyclistModel);
+    public CyclistModel saveCyclist(CyclistModel cyclist) {
+        return cyclistRepository.save(cyclist);
     }
 
     public boolean deleteCyclist(Long id) {

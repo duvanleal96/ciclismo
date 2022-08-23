@@ -22,7 +22,7 @@ public class CyclistController {
 
     @PostMapping("/api/cyclistNew")
     public CyclistModel saveCyclist(@Validated @RequestBody CyclistModel cyclistNew){
-        return  this.cyclistService.saveCyclist(cyclistNew);
+        return this.cyclistService.saveCyclist(cyclistNew);
     }
     @DeleteMapping(path = "/api/cyclist/delete/{id}")
     public String deleteById(@PathVariable("id") Long id) {
