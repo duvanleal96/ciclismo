@@ -9,5 +9,5 @@ import java.util.Optional;
 
 @Repository
 public interface CountryRepository extends CrudRepository<Country, Long> {
-    public Optional<CountryRepository> findCyclistByCountry(String nameCountry);
+    //public Optional<CountryRepository> findCyclistByCountry(String nameCountry);
 }

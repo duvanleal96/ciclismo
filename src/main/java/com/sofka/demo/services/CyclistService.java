@@ -12,8 +12,19 @@ public class CyclistService {
     @Autowired
     CyclistRepository cyclistRepository;
 
-    public ArrayList<CyclistModel> obtenerCiclistas(){
+    public ArrayList<CyclistModel> getCyclist(){
         return (ArrayList<CyclistModel>) cyclistRepository.findAll();
     }
+    public CyclistModel saveCyclist(CyclistModel cyclistModel) {
+        return cyclistRepository.save(cyclistModel);
+    }
 
+    public boolean deleteCyclist(Long id) {
+        try {
+            cyclistRepository.deleteById(id);
+            return true;
+        } catch (Exception err) {
+            return false;
+        }
+    }
 }

@@ -13,7 +13,9 @@ import javax.persistence.*;
 public class Country {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true,nullable = true)
-    private Long id;    private String nameCountry;
+    @Column(name = "id")
+    private Long id;
+    @Column(name = "name_country" ,length = 20,unique = false,nullable = false)
+     private String nameCountry;
 }
 

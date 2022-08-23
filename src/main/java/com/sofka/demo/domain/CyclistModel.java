@@ -13,13 +13,15 @@ import javax.persistence.*;
 public class CyclistModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(unique = true,nullable = false)
-    private long id;
+    @Column(name = "id" )
+    private Long id;
+    @Column(name = "name_cyclist" ,length = 20,unique = false,nullable = false)
     private String nameCyclist;
+    @Column(name = "competitor_number" ,length = 5,unique = false,nullable = false)
     private String competitorNumber;
     @ManyToOne
     @JoinColumn(name = "country", nullable = false)
-    private Country countryOrigin;
+    private Country country;
     @ManyToOne
     @JoinColumn(name = "team", nullable = false)
     private TeamModel team;

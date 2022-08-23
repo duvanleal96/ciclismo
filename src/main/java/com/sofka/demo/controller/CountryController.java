@@ -1,10 +1,26 @@
 package com.sofka.demo.controller;
 
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.sofka.demo.domain.Country;
+import com.sofka.demo.services.CountryService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+
 @CrossOrigin
 @RestController
-@RequestMapping("/country")
 public class CountryController {
+
+    @Autowired
+    CountryService countryService;
+    @GetMapping("/api/country")
+    public ArrayList<Country> getCountry(){
+        return countryService.getCountry();
+    }
+
+    @PostMapping("/api/newCountry")
+    public Country saveCountry(@Validated @RequestBody Country country){
+        return  countryService.saveCountry(country);
+    }
 }
