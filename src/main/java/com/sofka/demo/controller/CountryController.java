@@ -1,6 +1,7 @@
 package com.sofka.demo.controller;
 
 import com.sofka.demo.domain.CountryModel;
+import com.sofka.demo.domain.CyclistModel;
 import com.sofka.demo.domain.TeamModel;
 import com.sofka.demo.services.CountryService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin
@@ -35,11 +37,16 @@ public class CountryController {
         }
     }
     @GetMapping("/api/country/countryTeam/{nameCountry}")
-    public ResponseEntity<CountryModel> findTeamModelByCountryModel(@PathVariable(name = "nameCountry") String nameCountry){
+    public List<TeamModel> findTeamModelByCountryModel(@PathVariable(name = "nameCountry") String nameCountry){
         Optional<CountryModel> team = countryService.findTeamModelByCountryModel(nameCountry);
-        if(team.isPresent())
-            return ResponseEntity.ok().body(team.get());
-        else
-            return ResponseEntity.notFound().build();
+            return team.get().getTeams();
     }
+
+    @GetMapping("/api/country/countryCyclist/{nameCountry}")
+    public List<CyclistModel> findCyclistModelByCountryModel(@PathVariable(name = "nameCountry") String nameCountry){
+        Optional<CountryModel> team = countryService.findTeamModelByCountryModel(nameCountry);
+        return team.get().getCyclists();
+    }
+
+
 }

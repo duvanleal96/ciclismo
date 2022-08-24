@@ -1,6 +1,7 @@
 package com.sofka.demo.domain;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @Table(name = "team")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class TeamModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -51,11 +51,8 @@ public class TeamController {
         }
     }
     @GetMapping("/api/team/codeTeam/{codeTeam}")
-    public ResponseEntity<TeamModel>findCyclistByCodeTeam(@PathVariable(name = "codeTeam") String codeTeam){
+    public List<CyclistModel>findCyclistByCodeTeam(@PathVariable(name = "codeTeam") String codeTeam){
         Optional<TeamModel> ciclist = teamService.findCyclistByCodeTeam(codeTeam);
-        if(ciclist.isPresent())
-            return ResponseEntity.ok().body(ciclist.get());
-        else
-            return ResponseEntity.notFound().build();
+            return ciclist.get().getCyclists();
     }
 }

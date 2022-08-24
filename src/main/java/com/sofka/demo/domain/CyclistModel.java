@@ -1,5 +1,6 @@
 package com.sofka.demo.domain;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Table(name = "cyclist")
 @Data
 @NoArgsConstructor
-
+@AllArgsConstructor
 public class CyclistModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -1,5 +1,6 @@
 package com.sofka.demo.services;
 
+import com.sofka.demo.domain.CountryModel;
 import com.sofka.demo.domain.CyclistModel;
 import com.sofka.demo.domain.TeamModel;
 import com.sofka.demo.repository.CyclistRepository;
@@ -8,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
+
 @Service
 public class CyclistService {
     TeamRepository teamRepository ;
@@ -28,4 +31,5 @@ public class CyclistService {
             return false;
         }
     }
+
 }
