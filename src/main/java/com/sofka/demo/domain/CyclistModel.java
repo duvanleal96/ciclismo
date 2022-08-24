@@ -21,7 +21,7 @@ public class CyclistModel {
     private String competitorNumber;
    @ManyToOne
    @JoinColumn(name = "country", nullable = true)
-   private Country country;
+   private CountryModel countryModel;
     @ManyToOne
     @JoinColumn(name = "team", nullable = true)
     private TeamModel team;

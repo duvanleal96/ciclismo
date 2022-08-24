@@ -2,18 +2,22 @@ package com.sofka.demo.controller;
 
 
 import com.sofka.demo.domain.TeamModel;
+import com.sofka.demo.services.CyclistService;
 import com.sofka.demo.services.TeamService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.stream.Stream;
+import java.util.List;
+import java.util.Optional;
+import java.util.stream.Collectors;
+
 
 @CrossOrigin
 @RestController
 public class TeamController {
-
+    CyclistService cyclistService;
     @Autowired
     TeamService teamService;
     @GetMapping("/api/team")
@@ -35,7 +39,13 @@ public class TeamController {
         }
     }
     @GetMapping("/api/team/codeTeam/{codeTeam}")
-    public Stream<Long> getCyclistByCodeTeam(@PathVariable("codeTeam") String codeTeam){
-         return teamService.findCyclistByCodeTeam(codeTeam);
+    public Optional<TeamModel> getCyclistByCodeTeam(@PathVariable("codeTeam") String codeTeam){
+       return teamService.findCyclistByCodeTeam(codeTeam);
+    }
+    @GetMapping("/api/team/country/{nameCountry}")
+    public List<TeamModel> findTeamModelByCountryModel(@PathVariable String nameCountry){
+       List<TeamModel> teamModels= new ArrayList<>();
+       teamService.findTeamModelByCountryModel(nameCountry).map(teamModel -> teamModels.add(new TeamModel()));
+       return teamModels;
     }
 }

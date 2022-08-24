@@ -1,9 +1,11 @@
 package com.sofka.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "team")
@@ -20,6 +22,9 @@ public class TeamModel {
     private String codeTeam;
    @ManyToOne
    @JoinColumn(name = "country", nullable = true)
-    private Country country;
+    private CountryModel countryModel;
 
+    @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)
+    @JsonIgnore
+    private List<CyclistModel> cyclists;
 }

@@ -7,5 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 @Repository
 public interface TeamRepository extends CrudRepository<TeamModel, Long> {
-   public Optional<TeamModel> findCyclistByCodeTeam(String codeTeam);
+    public Optional<TeamModel> findCyclistByCodeTeam(String codeTeam);
+    public Optional<TeamModel> findTeamModelByCountryModel(String nameCountry);
 }
