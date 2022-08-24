@@ -20,7 +20,7 @@ public class CyclistTest {
 
     @Autowired
     CyclistService cyclistService;
-
+    //Test Complete!
     @Test
     public void testSaveCyclist(){
        when(cyclistRepository.findAll()).thenReturn(new ArrayList<>());
