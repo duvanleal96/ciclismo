@@ -20,8 +20,11 @@ public class CyclistService {
     public ArrayList<CyclistModel> getCyclist(){
         return (ArrayList<CyclistModel>) cyclistRepository.findAll();
     }
-    public CyclistModel saveCyclist(CyclistModel cyclist) {
-        return cyclistRepository.save(cyclist);
+    public CyclistModel saveCyclist(CyclistModel cyclist) throws IllegalAccessException{
+        if(cyclist.getCompetitorNumber().length()<=3){
+            return cyclistRepository.save(cyclist);
+        }
+        throw new IllegalAccessException("el codigo de ciclista debe tener el maximo 3 caracteres");
     }
     public boolean deleteCyclist(Long id) {
         try {

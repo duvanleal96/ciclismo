@@ -21,7 +21,7 @@ public class TeamService {
         if(teamModel.getCodeTeam().length()<=3) {
             return teamRepository.save(teamModel);
         }
-        throw new IllegalAccessException("el codigo de equipo de tener el maximo 3 caracteres");
+        throw new IllegalAccessException("el codigo de equipo debe tener el maximo 3 caracteres");
     }
     public boolean deleteTeam(Long id) {
         try {
