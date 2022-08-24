@@ -1,7 +1,7 @@
 # ciclismo
-Aplicación Backend implementando una arquitectura por capas , utilizando lenguaje SpringBoot 
+Aplicación Backend implementando una arquitectura por capas usando programación funcional ademas, utilizando lenguaje Java SpringBoot 
 Se implementa Maven como sistema para la gestión y construcción de la aplicación, 
-y se crea una base de datos SQL con gestor de base de datos Xampp.
+y se crea una base de datos SQL con gestor de datos Xampp.
 # Descripcion
 Uno de los eventos más importantes del ciclismo a nivel mundial es el Tour de Francia. Como parte del equipo de tecnología que apoya a la competición, se te ha encargado la tarea de desarrollar una aplicación o servicio que permita el registro de los equipos y sus respectivos ciclistas.
 
