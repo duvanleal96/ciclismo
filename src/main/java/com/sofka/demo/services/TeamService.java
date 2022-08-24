@@ -12,14 +12,16 @@ import java.util.Optional;
 
 @Service
 public class TeamService {
-    CyclistRepository cyclistRepository;
     @Autowired
     TeamRepository teamRepository;
     public ArrayList<TeamModel> getTeams(){
         return (ArrayList<TeamModel>) teamRepository.findAll();
     }
-    public TeamModel saveTeam(TeamModel teamModel) {
-        return teamRepository.save(teamModel);
+    public TeamModel saveTeam(TeamModel teamModel) throws IllegalAccessException {
+        if(teamModel.getCodeTeam().length()<=3) {
+            return teamRepository.save(teamModel);
+        }
+        throw new IllegalAccessException("el codigo de equipo de tener el maximo 3 caracteres");
     }
     public boolean deleteTeam(Long id) {
         try {
@@ -29,13 +31,8 @@ public class TeamService {
             return false;
         }
     }
-    public Optional<TeamModel> findCyclistByCodeTeam(String codeTeam){
+    public Optional<TeamModel>findCyclistByCodeTeam(String codeTeam){
         return teamRepository.findCyclistByCodeTeam(codeTeam);
-
     }
-    public Optional<TeamModel> findTeamModelByCountryModel(String nameCountry){
-        return teamRepository.findTeamModelByCountryModel(nameCountry);
-    }
-
 
 }

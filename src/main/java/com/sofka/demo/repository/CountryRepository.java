@@ -10,6 +10,6 @@ import java.util.Optional;
 @Repository
 public interface CountryRepository extends CrudRepository<CountryModel, Long> {
     Optional<CountryModel> findCountryById(String id);
-    Optional<CountryModel> findCyclistByNameCountry(String nameCountry);
-    ArrayList<CountryModel> findTeamByNameCountry(String nameCountry);
+    Optional<CountryModel>findTeamModelByNameCountry(String nameCountry);
+
 }

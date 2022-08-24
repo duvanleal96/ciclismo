@@ -21,7 +21,7 @@ public class TeamModel {
     @Column(name = "code_team" ,length = 5,unique = true,nullable = true)
     private String codeTeam;
    @ManyToOne
-   @JoinColumn(name = "country", nullable = true)
+   @JoinColumn(name = "country", nullable = false)
     private CountryModel countryModel;
 
     @OneToMany(mappedBy = "team", cascade = CascadeType.ALL)

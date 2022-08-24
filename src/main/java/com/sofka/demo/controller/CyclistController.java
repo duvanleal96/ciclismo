@@ -1,14 +1,12 @@
 package com.sofka.demo.controller;
 
 import com.sofka.demo.domain.CyclistModel;
-import com.sofka.demo.domain.TeamModel;
 import com.sofka.demo.services.CyclistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
-import java.util.Optional;
 
 @CrossOrigin
 @RestController
@@ -34,5 +32,4 @@ public class CyclistController {
             return "No pudo eliminar el ciclista con id " + id;
         }
     }
-
 }

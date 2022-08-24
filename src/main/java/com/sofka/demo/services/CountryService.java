@@ -1,7 +1,6 @@
 package com.sofka.demo.services;
 
 import com.sofka.demo.domain.CountryModel;
-import com.sofka.demo.domain.TeamModel;
 import com.sofka.demo.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,6 +27,8 @@ public class CountryService {
             return false;
         }
     }
-
+    public Optional<CountryModel>findTeamModelByCountryModel(String nameCountry){
+        return countryRepository.findTeamModelByNameCountry(nameCountry);
+    }
 
 }
